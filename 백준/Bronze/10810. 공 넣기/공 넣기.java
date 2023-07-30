@@ -1,24 +1,29 @@
 import java.util.*;
+
 public class Main {
-    public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int inum = sc.nextInt();
+		int[] ibasket = new int[inum];
+		int icount = sc.nextInt();
+		
+		for(int fi=0;fi<icount;fi++) {
+			int i = sc.nextInt();
+			int j = sc.nextInt();
+			int k = sc.nextInt();
+			for(int fi2=i-1;fi2<j;fi2++) {
+				if(fi2 >= 0 && fi2 < inum) { // validation check
+					ibasket[fi2]=k;
+				} else {
+					System.out.println("Index out of range");
+				}
+			}
+		}
+		for(int i=0;i<inum;i++) { // Changed from icount to inum
+			System.out.println(ibasket[i]);
+		}
 
-        int N = sc.nextInt();
-        int[] arr = new int[N];
-        int M = sc.nextInt();
-
-        for(int i = 0; i < M; i++) {
-            int I = sc.nextInt();
-            int J = sc.nextInt();
-            int K = sc.nextInt();
-
-            for(int j = I - 1; j < J; j++) {
-                arr[j] = K;
-            }
-        }
-        for(int k = 0; k < arr.length; k++) {
-            System.out.print(arr[k] + " ");
-        }
-    }
+		sc.close(); // Scanner object closed
+	}
 }
